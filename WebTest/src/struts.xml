@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts SYSTEM "struts-2.1.dtd" >
+	<!--
+		<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts
+		Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+	-->
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="check" class="com.dyf.actions.UserAction" method="checkUser">
+			<result type="redirect">/showuser.action</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		<action name="adduser" class="com.dyf.actions.UserAction"
+			method="userInsert">
+			<result>/success.jsp</result>
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="showuser" class="com.dyf.actions.UserAction"
+			method="showUser">
+			<result>/show_user.jsp</result>
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="loadbyid" class="com.dyf.actions.UserAction"
+			method="loadById">
+			<result>/update_user.jsp</result>
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="updateuser" class="com.dyf.actions.UserAction"
+			method="userUpdate">
+			<result type="redirect">/showuser.action</result>
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="deleteuser" class="com.dyf.actions.UserAction"
+			method="userDelete">
+			<result type="redirect">/showuser.action</result>
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="checkusername" class="com.dyf.actions.UserAction"
+			method="checkUserName">
+			<result></result>
+		</action>
+		
+		<action name="*">
+			<result>/{1}.jsp</result>
+		</action>
+	</package>
+</struts>
